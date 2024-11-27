@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import FilterPanel from "./components/FilterPanel";
+import MonthGrid from "./components/MonthGrid";
+import Popup from "./components/Popup";
+import { events } from "./data";
+import "./styles/styles.css";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
-function App() {
+const App = () => {
+  const [selectedType, setSelectedType] = useState(null);
+  const [popupEvent, setPopupEvent] = useState([]);
+
+  const filteredEvents = selectedType
+    ? events.filter((event) => event.type === selectedType)
+    : events;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+
+      <FilterPanel
+        selectedType={selectedType}
+        setSelectedType={setSelectedType}
+      />
+
+      <MonthGrid events={filteredEvents} onEventClick={setPopupEvent} />
+
+      {popupEvent && (
+        <Popup event={popupEvent} onClose={() => setPopupEvent(null)} />
+      )}
+
+      <Footer/>
     </div>
   );
-}
+};
 
 export default App;

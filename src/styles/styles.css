@@ -1,0 +1,182 @@
+.app {
+  padding: 20px 70px 50px 70px;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  background-color: #131315;
+  font-family: "Lexend", sans-serif;
+}
+
+.header {
+  display: flex;
+  height: 44px;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #ff4e6b29;
+  margin-bottom: 30px;
+}
+
+.header img {
+  width: 72px;
+  height: 22px;
+}
+
+.header .menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.header p {
+  color: white;
+  margin-left: 50px;
+  margin-top: 0;
+}
+
+.menu-item {
+  color: white;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-item::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transition: width 0.3s ease;
+}
+
+.menu-item:hover::after {
+  width: 100%;
+}
+
+.filter-panel {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background: #ddd;
+  border-radius: 25px;
+}
+
+.filter-btn.active {
+  background: #333;
+  color: #fff;
+}
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.month {
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+}
+
+.weekday {
+  padding: 5px;
+  color: #666;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.day {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000000;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: grid;
+  gap: 24px;
+}
+
+.title {
+  color: white;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.popup-content button {
+  margin-top: 20px;
+  padding: 10px;
+  background: #333;
+  color: #ff4e6b;
+  border: none;
+  cursor: pointer;
+}
+
+.day .event-dot {
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.event-dot.red {
+  background-color: red;
+}
+
+.event-dot.yellow {
+  background-color: yellow;
+}
+
+.event-dot.green {
+  background-color: green;
+}
+
+.event-dot.blue {
+  background-color: blue;
+}
+
+.event-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  margin-top: 5px;
+  /* position: absolute; */
+}
+
+.footer {
+  border-top: 1px solid #ff4e6b29;
+}
